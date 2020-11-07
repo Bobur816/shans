@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.button {
+    margin: 2px 1px;
+    padding: 14px 22px;
+    border-radius: 4px;
+    border: none;
+    display: inline-block;
+    width: 59px;
+    font-size: 18px;
+    
+    
+
+}
+
+body{
+    
+    background-size: cover;
+}
+
+.calculator {
+    background-color:#28706b;
+    float: left;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#input{
+    margin: 20px 0;
+    font-size: 21px;
+    border: none;
+    height: 50px;
+    border-radius: 4px;
+    text-align: right;
+    background-color: white;
+}
+
+ .button1{
+    background-color: #777a7d;
+    color: white;
+    margin: 2px 1px;
+    padding: 14px 22px;
+    border-radius: 4px;
+    border: none;
+    display: inline-block;
+    width: 59px;
+    font-size: 18px;
+}
+
+#buttonclear {
+    background-color: #498cde;
+    color: white;
+}
+
+#rusult {
+    background-color: #e85046;
+}
+
+.button1:hover, .button:hover{
+    background-color: #daeaed;
+    border: none;
+   
+    
+}
+.button1:hover{
+    background-color:#6e7678;
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form name="calculator">
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <input id="input" type="text" name="display" id="display" disabled placeholder="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input class="button" id="buttonclear" type="button" name="clear" value="C" onclick="clean()"></td>
+                    <td><input class="button" type="button" name="plus/minus" value="+/-" onclick="plusMinus()"></td>
+                    <td><input class="button" type="button" name="protsent" value="%" onclick="equal1()"></td>
+                    <td><input class="button1" type="button" name="division" value="/" class="operator" onclick="calculator.display.value += '/'"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" name="seven" value="7" onclick="insert(7)"></td>
+                    <td><input class="button" type="button" name="eight" value="8" onclick="insert(8)"></td>
+                    <td><input class="button" type="button" name="nine" value="9" onclick="insert(9)"></td>
+                    <td><input class="button1" type="button" name="times" value="x"  onclick="calculator.display.value += '*'"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" name="four" value="4" onclick="insert(4)"></td>
+                    <td><input class="button" type="button" name="five" value="5" onclick="insert(5)"></td>
+                    <td><input class="button" type="button" name="six" value="6" onclick="insert(6)"></td>
+                    <td><input class="button1" type="button" name="minus" value="-"  onclick="calculator.display.value += '-'"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" name="one" value="1" onclick="insert(1)"></td>
+                    <td><input class="button" type="button" name="two" value="2" onclick="insert(2)"></td>
+                    <td><input class="button" type="button" name="three" value="3" onclick="insert(3)"></td>
+                    <td><input class="button1" type="button" name="plus" value="+"  onclick="calculator.display.value += '+'"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" name="zero" value="0" onclick="insert(0)"></td>
+                    <td><input class="button" type="button" name="nuqta" value="." onclick="insert('.')"></td>
+                    <td><input class="button" type="button" name="clear" value="Del" onclick="back()"></td>
+                    <td><input class="button" id="rusult" type="button" name="doit" value="="  onclick="equal()"></td>
+                </tr>
+    
+            </table>
+        </form>
+    </div>
+    <script>
+        function insert(son){
+    calculator.display.value = calculator.display.value + son;
+}
+function  equal(){
+    var exp = calculator.display.value;
+    if(exp){
+        calculator.display.value = eval(exp);
+    }
+}
+
+function clean(){
+    calculator.display.value = " ";
+}
+
+function back(){
+    var exp = calculator.display.value;
+    calculator.display.value = exp.substring(0, exp.length-1);
+}
+
+function plusMinus(){
+    var exp = calculator.display.value;
+    exp *= (-1);
+    calculator.display.value = exp;
+}
+
+function  equal1(){
+    var exp = calculator.display.value;
+    if(exp){
+        calculator.display.value = eval(exp)/100;
+    }
+}
+
+
+
+    </script>
+</body>
+</html>
